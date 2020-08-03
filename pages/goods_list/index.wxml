@@ -1,0 +1,23 @@
+<!-- pages/goods_list/index.wxml -->
+<!-- 商品列表页面 -->
+<SearchInput />
+<TabBar titles="{{tabs}}" bind:tabItemChange="handleItemChange"></TabBar>
+<block wx:if="{{currentIndex===0}}">
+  <view class="first-tab">
+    <navigator class="goods-item"
+               wx:for="{{goodsList}}"
+               url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
+      <!-- 左侧 -->
+      <view class="goods-img">
+        <image src="{{item.goods_small_logo||'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}" mode="widthFix" />
+      </view>
+      <!-- 右侧 -->
+      <view class="goods-info">
+        <view class="good-name">{{item.goods_name}}</view>
+        <view class="good-price">￥{{item.goods_price}}</view>
+      </view>
+    </navigator>
+  </view>
+</block>
+<block wx:elif="{{currentIndex===1}}">2</block>
+<block wx:elif="{{currentIndex===2}}">3</block>

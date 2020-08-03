@@ -1,0 +1,26 @@
+/**app.wxss**/
+@import "./styles/iconfont.wxss";
+@import "./styles//iconfont1.wxss";
+page, view, text, swiper, swiper-item, image, navigator{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+page {
+  /* 主题颜色 */
+  --themeColor:#eb4450;
+  /* 定义统一的字体大小 假如设计稿是375px 
+    1px = 2rpx
+    14px = 28rpx
+  */
+  font-size: 28rpx;
+}
+image {
+  width: 100%;
+}
+.ellipsis{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient: vertical;
+}

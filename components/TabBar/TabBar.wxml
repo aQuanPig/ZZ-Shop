@@ -1,0 +1,16 @@
+<!--components/TabBar/TabBar.wxml-->
+<view class="tabbar">
+  <view class="tabbar-title" >
+    <view class="tabbar-item {{currentIndex === index?'active':''}}" 
+          wx:for="{{titles}}" 
+          wx:key="id"
+          bind:tap="handleItemTap"
+          data-index="{{index}}">
+      {{item.name}}
+  </view>
+  </view>
+  <view class="tabbar-content" >
+    
+  </view>
+</view>
+

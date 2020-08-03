@@ -1,0 +1,7 @@
+<!--pages/cart/index.wxml-->
+<!-- 购物车页面 -->
+<view class="revice-address">
+  <view class="address">
+    <button type="primary" plain="{{true}}" bind:tap="handleChooseAddress">收货地址</button>
+  </view>
+</view>

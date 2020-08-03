@@ -1,0 +1,54 @@
+/* pages/category/index.wxss */
+Page {
+  height: 100%;
+}
+.category {
+  display: flex;
+  height: calc(100vh - 90rpx);
+  flex-wrap: wrap;
+}
+.category .category-title {
+  flex: 2;
+  text-align: center;
+  height: 100%;
+}
+.category .category-title .title-item {
+  height: 80rpx;
+  font-size: 30rpx;
+  color: #666;
+  padding: 20rpx 20rpx;
+}
+.category .category-title .active {
+  color: var(--themeColor);
+  border-left: 5rpx solid var(--themeColor);
+}
+.category .category-content {
+  flex: 5;
+  height: 100%;
+}
+.category .category-content .goods-title {
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.category .category-content .goods-title::before {
+  content: "/";
+  color: #ccc;
+  padding-right: 10rpx;
+}
+.category .category-content .goods-title::after {
+  content: "/";
+  color: #ccc;
+  padding-left: 10rpx;
+}
+.category .category-content .goods-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.category .category-content .goods-list navigator {
+  width: 33.33%;
+  text-align: center;
+}
+.category .category-content .goods-list navigator image {
+  width: 50%;
+}

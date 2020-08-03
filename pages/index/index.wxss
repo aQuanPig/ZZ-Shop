@@ -1,0 +1,43 @@
+/**index.wxss**/
+.index-swiper swiper {
+  width: 750rpx;
+  height: 340rpx;
+}
+.index-swiper swiper image {
+  width: 100%;
+}
+.index-cate {
+  display: flex;
+}
+.index-cate navigator {
+  flex: 1;
+  padding: 20rpx;
+}
+.index-cate navigator image {
+  width: 100%;
+}
+.index-floor .floor-list {
+  padding: 10rpx 0;
+}
+.index-floor .floor-list .floor-title image {
+  width: 100%;
+}
+.index-floor .floor-list .floor-content {
+  overflow: hidden;
+}
+.index-floor .floor-list .floor-content navigator {
+  float: left;
+  width: 33.33%;
+}
+.index-floor .floor-list .floor-content navigator:nth-last-child(-n+4) {
+  height: 27.72711207vw;
+  border-left: 10rpx solid #ffffff;
+}
+.index-floor .floor-list .floor-content navigator:nth-child(2),
+.index-floor .floor-list .floor-content navigator:nth-child(3) {
+  border-bottom: 10rpx solid #ffffff;
+}
+.index-floor .floor-list .floor-content navigator image {
+  width: 100%;
+  height: 100%;
+}
