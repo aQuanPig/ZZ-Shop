@@ -1,0 +1,166 @@
+/* pages/user/index.wxss */
+page {
+  background-color: #eaf1e9;
+}
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+.cart-bg{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 240rpx;
+  background-color: var(--themeColor);
+  color: #ffffff;
+  z-index:-1;
+}
+.noUser{
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  display: flex;
+  align-items: center;
+  .avatar {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 50%;
+  }
+  .loginAndReg{
+    margin-left: 20rpx;
+    .info {
+      font-size: 28rpx;
+      color: #fbd1ca;
+    }
+    .button{
+      display: flex;
+      margin-top: 10rpx;
+      .login,
+      .register{
+        margin: 0;
+        padding: 0;
+        width: 160rpx;
+        background-color: #ff9588;
+        color: #ffffff;
+        font-size: 26rpx;
+        padding: 10rpx 30rpx;
+        border-radius: 30rpx;
+        font-weight: 400;
+      }
+      .login{
+        margin-right: 10rpx;
+      }
+    }
+  }
+}
+.user-info-wrap{
+  height: 360rpx;
+  .user-img-wrap{
+    position: relative;
+    .user-bg{
+      height: 340rpx;
+      width: 100vw;
+      background-color: var(--themeColor);
+      // opacity: 0.7;
+    }
+    .user-info{
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+      top: 10%;
+      text-align: center;
+      .user-icon{
+        width: 150rpx;
+        height: 150rpx;
+        border-radius: 50%;
+      }
+      .user-name{
+        color: #ffffff;
+        margin-top: 24rpx;
+        font-size: 40rpx;
+
+      }
+    }
+  }
+}
+.use-content{
+  // position: absolute;
+  .use-main{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 27%;
+    // 历史足迹
+    .history-wrap{
+      width: 98vw;
+      background-color: #fff;
+      display: flex;
+      border-radius: 10rpx;
+      navigator{
+        flex: 1;
+        text-align: center;
+        padding: 10rpx 0;
+        .history-num{
+          color: var(--themeColor);
+        }
+        .history-name{
+
+        }
+      }
+    }
+    // 我的订单
+    .order{
+      margin-top: 20rpx;
+      background-color: #fff;
+      border-radius: 10rpx;
+      .order-top{
+        border-bottom: 1rpx solid #ccc;
+        padding: 20rpx;
+        font-size: 32rpx;
+      }
+      .order-content{
+        display: flex;
+        text-align: center;
+        .content-item{
+          flex:1;
+          padding:10rpx 20rpx;
+          .order-icon{
+            color: var(--themeColor);
+            font-size: 50rpx;
+          }
+          .allOrder{
+            margin-top: 6rpx;
+          }
+        }
+      }
+    }
+    // 其他设置
+    .other{
+      margin-top: 20rpx;
+      border-radius: 10rpx;
+      background-color: #fff;
+      .other-item{
+        display: flex;
+        padding: 20rpx;
+        align-items: center;
+        border-bottom: 1rpx solid #ccc;
+        font-size: 32rpx;
+        .icon{
+          color: #fea176;
+          font-size: 34rpx;
+        }
+        .info{
+          color: #301616;
+          margin-left: 10rpx;
+          font-size: 30rpx;
+        }
+        &:nth-last-child(1){
+          border: none;
+        }
+      }
+    }
+  }
+}

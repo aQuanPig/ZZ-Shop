@@ -1,3 +1,38 @@
-<!--pages/pay/index.wxml-->
+<!-- pages/pay/index.wxml -->
 <!-- 结算页面 -->
-<text>pages/pay/index.wxml</text>
+<view class="address">
+  <text class="font-dizhi iconfont icon-dizhi" />
+  <view class="write">收货地址：</view>
+  <view class="hasAddress" wx:if="{{address}}">
+    <view class="nameAndPhone">
+      <text class="name">{{address.userName}}</text>
+      <text class="phone">{{address.telNumber}}</text>
+    </view>
+    <view class="allAddress">
+      {{address.provinceName+address.cityName+address.countyName+address.detailInfo}}
+    </view>
+  </view>
+  <view class="noAddress" bind:tap="selectAddress" wx:else>未选择收货地址</view>
+  <view class="right iconfont icon-jiantou" />
+</view>
+<view class="goods-list">
+  <view class="goods-item" wx:for="{{goods}}">
+    <view class="img-wrap">
+      <image src="{{item.pics[0].pics_sma_url}}" mode="widthFix" />
+    </view>
+    <view class="goods-info">
+      <view class="goods-name ellipsis">{{item.goods_name}}</view>
+      <view class="goods-price-num">
+        <view class="goods-price">￥{{item.goods_price}}</view>
+        <view class="goods-num">x {{item.num}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="pay">
+  <view class="total">
+    合计:
+    <text>￥{{totalPrice}}</text>
+  </view>
+  <button class="goPay" bind:tap="handlePay">支付</button>
+</view>

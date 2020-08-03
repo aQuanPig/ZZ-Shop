@@ -46,16 +46,16 @@ Page({
     /**
      * every 方法为数组中的每个元素执行一次 callback 函数，直到它找到一个会使 callback 返回 false 的元素。如果发现了一个这样的元素，every 方法将会立即返回 false。否则，callback 为每一个元素返回 true
      */
-    const isChecked = cart.filter(item => item.isChecked)
+    const isChecked = this.filterCheck(cart,true)
     const allChecked = cart.length ? cart.every(item => item.isChecked) : false
-    const totalPrice = cart.filter(item => item.isChecked).reduce((preValue, nowValue) => {
+    const totalPrice = isChecked.reduce((preValue, nowValue) => {
       return preValue + nowValue.goods_price * nowValue.num
     }, 0)
     this.setData({
       cart,
       allCheck: allChecked,
       totalPrice,
-      isChecked: isChecked.length
+      isChecked: isChecked
     })
   },
   /**
@@ -89,11 +89,75 @@ Page({
     this.getTotalAndPrice(cart)
   },
   /**
-   * 删除管理
+   * 切换删除和购买管理
    */
   handleManageTap() {
-    this.setData({
-      isManage: !this.data.isManage
+    const {cart} = this.data
+    cart.map(item=>{
+      return item.isChecked=false
     })
+    wx.setStorageSync("cart", cart);
+    this.setData({
+      isManage: !this.data.isManage,
+      cart,
+      allCheck:false
+    })
+  },
+  handleDeleteGoods(){
+    const {cart} = this.data;
+    const isDelete = this.filterCheck(cart,true)
+    if(isDelete.length){
+      wx.showModal({
+        title: '温馨提示',
+        content: '确定将这些宝贝删除',
+        cancelText:'我再想想',
+        confirmText:'删除',
+        cancelColor:'#333',
+        confirmColor:'#EE6363',
+        success: (res)=> {
+          if (res.confirm) {
+            const noDeleteGoods = this.filterCheck(cart,false)
+            wx.setStorageSync("cart",noDeleteGoods)
+            this.getTotalAndPrice(noDeleteGoods)
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    }else {
+      wx.showToast({
+        title: '您还没有选择宝贝哦',
+        icon:'none'
+      })
+    }
+  },
+  filterCheck(cart,type){
+    /**
+     * type为true的时候，isChecked为true 
+     */
+    if(type){
+      return cart.filter(item => {
+        return item.isChecked === true
+      })
+    } else {
+      return cart.filter(item => {
+        return item.isChecked === false
+      })
+    }
+  },
+  // 点击结算功能
+  handlePay(){
+    const {isChecked} = this.data;
+    wx.setStorageSync("payGoods", isChecked);
+    if(isChecked){
+      wx.navigateTo({
+        url: '/pages/pay/index'
+      });
+    }else {
+      wx.showToast({
+        title: '你还没有选购商品~',
+        icon:"none"
+      });
+    }
   }
 })

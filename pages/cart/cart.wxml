@@ -1,47 +1,60 @@
 <!-- pages/cart/cart.wxml -->
-<view class="cart-bg"></view>
-<view class="cart-top">
-  <view class="top-right iconfont icon-gouwuche">
-    当前已选{{isChecked}}件(共{{cart.length}}件)
+<view class="hasGoods" wx:if="{{cart.length !== 0}}">
+  <view class="cart-bg"></view>
+  <view class="cart-top">
+    <view class="top-right iconfont icon-gouwuche">
+      当前已选{{isChecked.length}}件(共{{cart.length}}件)
+    </view>
+    <view class="top-left" bind:tap="handleManageTap">管理</view>
   </view>
-  <view class="top-left" bind:tap="handleManageTap">
-    管理
-  </view>
-</view>
-<view class="goods-list">
-  <view class="goods-item" wx:for="{{cart}}">
-    <text class="check iconfont {{isManage?'icon-shanchu2':'icon-xuanzhong1'}} {{item.isChecked?'active':''}}" bind:tap="handleCheckChange" data-id="{{item.goods_id}}" />
-    <image src="{{item.pics[0].pics_sma_url}}" mode="widthFix" />
-    <view class="goods-info">
-      <view class="goods-name ellipsis">{{item.goods_name}}</view>
-      <view class="goods-price-num">
-        <view class="goods-price">￥{{item.goods_price}}</view>
-        <view class="goods-num">
-          <button class="increment" bind:tap="handleItemNumberEdit" data-id="{{item.goods_id}}" data-type="{{-1}}" disabled="{{item.num=== 1?true:false}}">
-            -
-          </button>
-          <text class="num">{{item.num}}</text>
-          <button class="decrement" bind:tap="handleItemNumberEdit" data-id="{{item.goods_id}}" data-type="{{1}}">
-            +
-          </button>
+  <view class="goods-list">
+    <view class="goods-item" wx:for="{{cart}}">
+      <text class="check iconfont {{isManage?'icon-shanchu2':'icon-xuanzhong1'}} {{item.isChecked?'active':''}}" bind:tap="handleCheckChange" data-id="{{item.goods_id}}" />
+      <view class="img-wrap">
+        <image src="{{item.pics[0].pics_sma_url}}" mode="widthFix" />
+      </view>
+      <view class="goods-info">
+        <view class="goods-name ellipsis">{{item.goods_name}}</view>
+        <view class="goods-price-num">
+          <view class="goods-price">￥{{item.goods_price}}</view>
+          <view class="goods-num">
+            <button class="increment" bind:tap="handleItemNumberEdit" data-id="{{item.goods_id}}" data-type="{{-1}}" disabled="{{item.num=== 1?true:false}}">
+              -
+            </button>
+            <text class="num">{{item.num}}</text>
+            <button class="decrement" bind:tap="handleItemNumberEdit" data-id="{{item.goods_id}}" data-type="{{1}}">
+              +
+            </button>
+          </view>
         </view>
       </view>
     </view>
   </view>
+  <!-- 底部工具栏 -->
+  <view class="footer-tool">
+    <view class="all-check-wrap" bind:tap="handleAllChecked">
+      <text class="check iconfont icon-xuanzhong1 {{allCheck?'active':''}}" />
+      <text>全选</text>
+    </view>
+    <view class="isDelte" wx:if="{{isManage}}">
+      <button class="collect">移入收藏夹</button>
+      <button class="delete" bind:tap="handleDeleteGoods">删除</button>
+    </view>
+    <view class="total-pay" wx:else>
+      <view class="total">
+        总计：
+        <text>￥{{totalPrice}}</text>
+      </view>
+      <view class="order-pay">
+        <button bind:tap="handlePay">结算({{isChecked.length}})</button>
+      </view>
+    </view>
+  </view>
 </view>
-<!-- 底部工具栏 -->
-<view class="footer-tool">
-  <view class="all-check-wrap" bind:tap="handleAllChecked">
-    <text class="check iconfont icon-xuanzhong1 {{allCheck?'active':''}}" />
-    <text>全选</text>
-  </view>
-  <view class="total-pay">
-    <view class="total">
-      总计：
-      <text>￥{{totalPrice}}</text>
-    </view>
-    <view class="order-pay">
-      <button>结算({{isChecked}})</button>
-    </view>
-  </view>
+<view class="noGoods" wx:else>
+  <image class="" src="../../assets/img/cart1.gif" mode="widthFix" />
+  <view class="info">一件商品都没有呢</view>
+  <navigator url="../index/index" open-type="switchTab">
+    <button class="goToHome">去逛逛</button>
+  </navigator>
 </view>

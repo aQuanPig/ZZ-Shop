@@ -1,0 +1,126 @@
+/* pages/pay/index.wxss */
+Page {
+  background-color: #eaeaea;
+}
+.address{
+  height: 140rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  position: relative;
+  .font-dizhi {
+    margin-left: 20rpx;
+    color: var(--themeColor);
+    font-size: 30rpx;
+  }
+  .write {
+    color: #323232;
+    font-size: 32rpx;
+  }
+  .noAddress{
+    margin-left: 30rpx;
+    color: #acacac;
+    font-size: 28rpx;
+    position: relative;
+    top: 2rpx;
+    padding:0 20rpx;
+    flex: 1;
+  }
+  .hasAddress{
+    position: relative;
+    .nameAndPhone{
+      display: flex;
+      color: #333333;
+      font-weight: 500;
+      font-size: 32rpx;
+      .phone {
+        margin-left: 20rpx;
+      }
+    }
+    .allAddress{
+      color: #919191;
+    }
+  }
+  .right{
+    position: absolute;
+    top: 40%;
+    right: 50rpx;
+    margin-left: 250rpx;
+  }
+}
+.goods-list{
+  margin:10rpx 0 0;
+  .goods-item{
+    padding: 20rpx;
+    background-color: #fff;
+    display: flex;
+    border-bottom: 2rpx solid #eeeeee;
+    .img-wrap{
+      flex: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      image {
+        width: 70%;
+      }
+    }
+    
+    .goods-info{
+      position: relative;
+      flex:6;
+      padding-left: 20rpx;
+      display: flex;
+      flex-direction:column;
+      justify-content:space-around;
+      .goods-name{
+        font-size: 32rpx;
+        color: #000;
+      }
+      .goods-price-num{
+        display: flex;
+        .goods-price{
+          color: #fa0000;
+          font-size: 32rpx;
+          margin-right: 20rpx;
+        }
+        .goods-num{
+          position: absolute;
+          right: 60rpx;
+          top: 70%;
+          display: flex;
+          align-items:center;
+        }
+      }
+    }
+  }
+}
+.pay{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  height: 90rpx;
+  .total{
+    margin-left: 30rpx;
+    font-weight: 600;
+    font-size: 32rpx;
+    text {
+      color: var(--themeColor);
+    }
+  }
+  .goPay{
+    margin: 0;
+    padding: 16rpx 26rpx;
+    background-color: var(--themeColor);
+    color: #fff;
+    font-size: 30rpx;
+    width: 180rpx;
+    line-height: 60rpx;
+    height: 100%;
+    border-radius: 0;
+  }
+}
