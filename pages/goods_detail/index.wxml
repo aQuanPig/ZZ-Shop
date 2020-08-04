@@ -2,8 +2,8 @@
 <!-- 商品详情页面 -->
 <!-- 轮播图 -->
 <view class="detail-swiper">
-  <swiper autoplay circular indicator-dots>
-    <swiper-item wx:for="{{goodsDeatilData.pics}}" wx:key="pics_id" bind:tap="handlePreviewImg" data-index="{{index}}">
+  <swiper autoplay circular indicator-dots indicator-active-color="#19CAAD">
+    <swiper-item wx:for="{{goodsDeatilData.pics}}" wx:key="pics_id" bind:tap="handlePreviewImg" data-index="{{index}}" >
       <image class="" src="{{item.pics_mid}}" mode="widthFix"></image>
     </swiper-item>
   </swiper>
@@ -11,9 +11,9 @@
 <view class="goods-price">￥ {{goodsDeatilData.goods_price}}</view>
 <view class="goods-name-row">
   <view class="goods-name ellipsis">{{goodsDeatilData.goods_name}}</view>
-  <view class="goods-collect">
-    <text class="iconfont icon-shoucang" />
-    <view class="collect-text">收藏</view>
+  <view class="goods-collect" bind:tap="handleCollect">
+    <text class="iconfont {{isCollect?'icon-shoucang11':'icon-shoucang'}}" />
+    <view class="collect-text">{{isCollect?"已收藏":"收藏"}}</view>
   </view>
 </view>
 <!-- 商品产品介绍 -->
@@ -35,7 +35,7 @@
     <view>分享</view>
     <button open-type="share" class="contact"/>
   </view>
-  <navigator url="/pages/cart/index" class="tool-item" open-type="switchTab">
+  <navigator url="/pages/cart/cart" class="tool-item" open-type="switchTab">
     <text class="iconfont icon-gouwuche" />
     <view>购物车</view>
   </navigator>

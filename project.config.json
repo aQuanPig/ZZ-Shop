@@ -103,9 +103,31 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "登录页面",
+					"id": 6,
+					"name": "个人中心",
 					"pathName": "pages/user/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单参数",
+					"pathName": "pages/order/index",
+					"query": "type=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品收藏",
+					"pathName": "pages/collect/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索中心",
+					"pathName": "pages/search/index",
+					"query": "",
 					"scene": null
 				}
 			]

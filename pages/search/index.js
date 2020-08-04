@@ -1,66 +1,63 @@
 // pages/search/index.js
+import { request } from '../../request/index'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    isInput: false,
+    value: '',
+    goods: [],
+    hasGoods:true
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  timeId: 0,
+  handleInput(e) {
+    const { value } = e.detail
+    if (!value.trim()) {
+      this.setData({
+        goods:[],
+        isInput:false
+      })
+      return;
+    }
+    if (value.length >= 1) {
+      this.setData({
+        isInput: true,
+        value
+      })
+    }
+    clearTimeout(this.timeId)
+    this.timeId = setTimeout(() => {
+      this.qSearch(value)
+    }, 1000)
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 发送请求获取搜索建议数据
+  async qSearch(query) {
+    const result = await request({
+      url: "/goods/qsearch",
+      data: { query }
+    })
+    this.setData({
+      goods: result.splice(0, 10)
+    })
+    if(!result.length){
+      this.setData({
+        hasGoods:false
+      })
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  handleClear() {
+    this.setData({
+      value: "",
+      isInput: false
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  handleSearch(){
+    wx.showToast({
+      title: '暂不支持该功能哦~',
+      mask:true,
+      icon:"none"
+    });
   }
 })

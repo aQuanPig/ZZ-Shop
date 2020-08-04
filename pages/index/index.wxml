@@ -4,9 +4,9 @@
   <SearchInput />
   <!-- 轮播图 -->
   <view class="index-swiper">
-    <swiper autoplay indicator-dots circular>
+    <swiper autoplay indicator-dots circular indicator-active-color="#19CAAD">
       <swiper-item wx:for="{{swiperList}}" wx:key="goods_id">
-        <navigator>
+        <navigator url="{{item.navigator_url}}">
           <image mode="widthFix" src="{{item.image_src}}" />
         </navigator>
       </swiper-item>
@@ -14,7 +14,7 @@
   </view>
   <!-- 导航菜单 -->
   <view class="index-cate">
-    <navigator class="" wx:for="{{categoryList}}" wx:key="name">
+    <navigator open-type="switchTab" wx:for="{{categoryList}}" wx:key="name" url="/pages/category/index">
       <image mode="widthFix" src="{{item.image_src}}" />
     </navigator>
   </view>
@@ -25,8 +25,9 @@
         <image mode="widthFix" src="{{item.floor_title.image_src}}" />
       </view>
       <view class="floor-content">
-        <navigator wx:for="{{item.product_list}}" wx:for-item="item1" wx:for-index="indey"wx:key="name">
+        <navigator wx:for="{{item.product_list}}" wx:for-item="item1" wx:for-index="indey" wx:key="name" url="{{item1.navigator_url}}">
           <image mode="{{indey === 0 ? 'widthFix':'scaleToFill'}}" src="{{item1.image_src}}" />
+          
         </navigator>
       </view>
     </view>

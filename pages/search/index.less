@@ -1,0 +1,80 @@
+/* pages/search/index.wxss */
+.search-h{
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 26rpx 10rpx 18rpx 20rpx;
+  background-color: #f3f4f6;
+  .icon-sousuo-{
+    position: absolute;
+    color: var(--themeColor);
+    top: 40rpx;
+    left: 34rpx;
+    font-size: 40rpx;
+  }
+  .icon-shanchu1{
+    position: absolute;
+    top: 40rpx;
+    right: 155rpx;
+    font-size: 40rpx;
+    color: #cccccc;
+  }
+  .input{
+    background-color: #fff;
+    padding:14rpx 56rpx 14rpx 70rpx;
+    border: 1rpx solid var(--themeColor);
+    border-radius: 40rpx;
+    flex: 6;
+  }
+  .search{
+    padding: 12rpx;
+    margin: 0;
+    flex: 1;
+    background-color: var(--themeColor);
+    color: #ffffff;
+    font-size: 30rpx;
+    margin-left: 20rpx;
+  }
+}
+.search-b{
+  .search-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx 28rpx;
+    border-bottom: 1rpx solid #cccccc;
+    .info{
+      flex: 1;
+      font-size: #666666;
+      font-size: 28rpx;
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+    .icon-youjiantou{
+      color: var(--themeColor);
+    }
+  }
+}
+
+.hasGoods{
+  width: 300rpx;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%);
+}
+.noGoods{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  color: #333;
+  font-size: 30rpx;
+}
+.image{
+  width: 300rpx;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

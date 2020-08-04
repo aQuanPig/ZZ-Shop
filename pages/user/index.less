@@ -33,7 +33,7 @@ page {
     margin-left: 20rpx;
     .info {
       font-size: 28rpx;
-      color: #fbd1ca;
+      color: #ffffff;
     }
     .button{
       display: flex;
@@ -64,7 +64,6 @@ page {
       height: 340rpx;
       width: 100vw;
       background-color: var(--themeColor);
-      // opacity: 0.7;
     }
     .user-info{
       position: absolute;
@@ -79,9 +78,7 @@ page {
       }
       .user-name{
         color: #ffffff;
-        margin-top: 24rpx;
         font-size: 40rpx;
-
       }
     }
   }
@@ -92,7 +89,7 @@ page {
     position: absolute;
     left: 50%;
     transform: translate(-50%);
-    top: 27%;
+    top: 24%;
     // 历史足迹
     .history-wrap{
       width: 98vw;
@@ -102,12 +99,10 @@ page {
       navigator{
         flex: 1;
         text-align: center;
-        padding: 10rpx 0;
+        padding: 20rpx 0;
         .history-num{
           color: var(--themeColor);
-        }
-        .history-name{
-
+          font-size: 30rpx;
         }
       }
     }
@@ -117,9 +112,17 @@ page {
       background-color: #fff;
       border-radius: 10rpx;
       .order-top{
-        border-bottom: 1rpx solid #ccc;
-        padding: 20rpx;
+        padding:20rpx 20rpx 12rpx 6rpx;
         font-size: 32rpx;
+        &::before{
+          content: "  ";
+          display: inline-block;
+          width: 10rpx;
+          height: 30rpx;
+          background-color: var(--themeColor);
+          position: relative;
+          top: 2rpx;
+        }
       }
       .order-content{
         display: flex;
@@ -146,17 +149,30 @@ page {
         display: flex;
         padding: 20rpx;
         align-items: center;
-        border-bottom: 1rpx solid #ccc;
+        justify-content: space-between;
+        // border-bottom: 1rpx solid #ccc;
         font-size: 32rpx;
-        .icon{
-          color: #fea176;
-          font-size: 34rpx;
+        .iconAndTitle{
+          display: flex;
+        
+          .info{
+            flex:1;
+            color: #301616;
+            margin-left: 10rpx;
+            font-size: 30rpx;
+            margin: 0;
+            padding: 0;
+            border-radius: 0;
+            font-weight: 400;
+            width: auto;
+            background-color: #fff;
+            .icon{
+              color: #fea176;
+              font-size: 34rpx;
+            }
+          }
         }
-        .info{
-          color: #301616;
-          margin-left: 10rpx;
-          font-size: 30rpx;
-        }
+        
         &:nth-last-child(1){
           border: none;
         }

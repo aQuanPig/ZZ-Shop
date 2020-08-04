@@ -1,7 +1,7 @@
 <!--components/TabBar/TabBar.wxml-->
 <view class="tabbar">
   <view class="tabbar-title" >
-    <view class="tabbar-item {{currentIndex === index?'active':''}}" 
+    <view class="tabbar-item {{item.isActive?'active':''}}" 
           wx:for="{{titles}}" 
           wx:key="id"
           bind:tap="handleItemTap"

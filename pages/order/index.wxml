@@ -1,3 +1,35 @@
-<!--pages/order/index.wxml-->
+<!-- pages/order/index.wxml -->
 <!-- 订单页面 -->
-<text>pages/order/index.wxml</text>
+<Tab titles="{{titles}}" bind:tabItemChange="tabItemChange" ></Tab>
+<!-- 订单列表 -->
+<view class="order-main">
+  <view class="order-item" wx:for="{{orderList}}" wx:key="order_id">
+    <view class="order-h">
+      <view class="h-l">下单时间：{{item.create_time}}</view>
+      <view class="h-r">物流信息</view>
+    </view>
+    <view class="order-b">
+      <view class="goods" wx:for="{{item.goods}}" wx:for-item="item1" wx:key="id">
+        <image class="goodsImg" mode="widthFix" src="{{item1.goods_small_logo}}" />
+        <view class="goodsInfo">
+          <view class="nameAndNum">
+            <text class="name">{{item1.goods_name}}</text>
+            <text class="num">x{{item1.goods_number}}</text>
+          </view>
+            <text class="smallprice">￥{{item1.goods_price}}</text>
+        </view>
+      </view>
+      <view class="numGoods">
+        共{{item.goods.length}}件商品
+      </view>
+      <view class="priceAndNumber">
+        <text class="number">
+          订单编号：{{item.order_number}}
+        </text>
+        <text class="price">
+          合计:￥{{item.order_price}}
+        </text>
+      </view>
+    </view>
+  </view>
+</view>

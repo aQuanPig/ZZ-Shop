@@ -28,6 +28,9 @@
   flex: 1;
   text-align: center;
 }
+.goods-name-row .goods-collect .icon-shoucang11 {
+  color: #FF9900;
+}
 .goods-info .goods-info-title {
   font-size: 32rpx;
   color: var(--themeColor);

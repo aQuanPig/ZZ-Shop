@@ -38,6 +38,7 @@ Page {
   border-radius: 10rpx;
   background-color: #fff;
   display: flex;
+  padding: 20rpx;
 }
 .hasGoods .goods-list .goods-item .check {
   flex: 0.5;
@@ -66,11 +67,12 @@ Page {
   justify-content: space-around;
 }
 .hasGoods .goods-list .goods-item .goods-info .goods-name {
-  font-size: 32rpx;
+  font-size: 30rpx;
   color: #000;
 }
 .hasGoods .goods-list .goods-item .goods-info .goods-price-num {
   display: flex;
+  margin-top: 10rpx;
 }
 .hasGoods .goods-list .goods-item .goods-info .goods-price-num .goods-price {
   color: #fa0000;

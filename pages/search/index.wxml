@@ -1,3 +1,22 @@
 <!--pages/search/index.wxml-->
 <!-- 搜索页面 -->
-<text>pages/search/index.wxml</text>
+<view class="search-h">
+  <text class="iconfont icon-sousuo-"/>
+  <text class="iconfont icon-shanchu1" wx:if="{{isInput}}" bind:tap="handleClear"/>
+  <input type="text" class="input" placeholder="请输入你要“搜索”的内容"
+  bindinput="handleInput"
+  value="{{value}}"/>
+  <button class="search" bind:tap="handleSearch">搜索</button>
+</view>
+<view class="search-b">
+  <view class="search-item" wx:for="{{goods}}" wx:key="goods_id">
+    <navigator class="info" url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
+      {{item.goods_name}}
+    </navigator>
+    <text class="iconfont icon-youjiantou"></text>
+  </view>
+</view>
+<image class="{{hasGoods?'image':'hasGoods'}}" src="../../assets/img/search.jpg" mode="widthFix"/>
+<view class="noGoods" wx:if="{{!hasGoods}}">
+  搜索不到宝贝...
+</view>

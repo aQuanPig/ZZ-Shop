@@ -7,9 +7,9 @@ Page({
    */
   data: {
     tabs: [
-      { id: 0, name: "综合" },
-      { id: 1, name: "销量" },
-      { id: 2, name: "价格" }
+      { id: 0, name: "综合",isActive:true },
+      { id: 1, name: "销量",isActive:false  },
+      { id: 2, name: "价格",isActive:false  }
     ],
     currentIndex:0,
     queryParams:{
@@ -34,9 +34,14 @@ Page({
     })
   },
   handleItemChange(e) {
+    const{tabs} = this.data
     const { index } = e.detail;
+    tabs.forEach((item, indey) => {
+      index === indey ? item.isActive = true : item.isActive = false
+    })
     this.setData({
-      currentIndex:index
+      currentIndex:index,
+      tabs
     })
   },
   /**
@@ -44,7 +49,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      queryParams:{...this.data.queryParams,cid:options.cid}
+      queryParams:{...this.data.queryParams,cid:options.cid||"",query:options.query||""}
     })
     // 获取商品列表数据
     this.getGoodsListData()

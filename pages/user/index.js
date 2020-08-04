@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo:{}
+    userInfo:{},
+    collectNum:0
   },
   /**
    * 获取用户信息
@@ -18,36 +19,19 @@ Page({
     this.setData({
       userInfo
     })
-    // wx.switchTab({
-    //   url: '/pages/index/index'
-    // });
   },
   onShow(){
-    const userInfo = wx.getStorageSync("userinfo");
+    const userInfo = wx.getStorageSync("userinfo") || [];
+    const collect = wx.getStorageSync("collect") || []
     this.setData({
-      userInfo
+      userInfo,
+      collectNum:collect.length
     })
-    console.log('onShow')
   },
-  onHide(){
-    console.log('onHide')
-  },
-  hhhh(){
-    wx.showModal({
-      title: 'ok',
-      content: 'dd',
-      showCancel: true,
-      cancelText: '取消',
-      cancelColor: '#000000',
-      confirmText: '确定',
-      confirmColor: '#3CC51F',
-      success: (result) => {
-        if(result.confirm){
-          
-        }
-      },
-      fail: ()=>{},
-      complete: ()=>{}
+  handleRefund(){
+    wx.showToast({
+      title: '暂不支持该功能~',
+      mask: true
     });
   }
 })

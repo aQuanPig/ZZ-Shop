@@ -20,8 +20,9 @@ Page({
     const swiper = await request({
       url: '/home/swiperdata'
     })
+    const new_swiper = swiper.map(item=>({...item,navigator_url:item.navigator_url.replace(/main/,"index")}))
     this.setData({
-      swiperList:swiper
+      swiperList:new_swiper
     })
   },
   async getCategoryListData(){
@@ -36,8 +37,13 @@ Page({
     const floor = await request({
       url: '/home/floordata'
     })
+    const new_floor=floor.map(item=>{
+      return {...item,product_list:item.product_list.map(item1=>{
+        return  {...item1,navigator_url:item1.navigator_url.replace('?','/index?')}
+      })}
+    })
     this.setData({
-      floorList:floor
+      floorList:new_floor
     })
   },
   /**

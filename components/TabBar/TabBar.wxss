@@ -1,4 +1,7 @@
 /* components/TabBar/TabBar.wxss */
+.tabbar {
+  background-color: #fff;
+}
 .tabbar .tabbar-title {
   display: flex;
 }

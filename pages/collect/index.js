@@ -5,62 +5,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    titles: [
+      { id: 0, name: "商品收藏", isActive: true },
+      { id: 1, name: "店铺收藏", isActive: false },
+      { id: 2, name: "浏览足迹", isActive: false }
+    ],
+    collect:[]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  tabItemChange(e) {
+    // 1.获取被点击的标题索引
+    const { index } = e.detail
+    // 2.重新发送请求 type=1 --> index=0
+    this.changeTitleByIndex(index)
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  changeTitleByIndex(index) {
+    let { titles } = this.data
+    titles.forEach((item, indey) => {
+      index === indey ? item.isActive = true : item.isActive = false
+    })
+    this.setData({
+      titles
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onShow(){
+    const collect = wx.getStorageSync("collect") || [];
+    this.setData({
+      collect
+    })
   }
 })

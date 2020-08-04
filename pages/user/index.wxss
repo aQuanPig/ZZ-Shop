@@ -35,7 +35,7 @@ page {
 }
 .noUser .loginAndReg .info {
   font-size: 28rpx;
-  color: #fbd1ca;
+  color: #ffffff;
 }
 .noUser .loginAndReg .button {
   display: flex;
@@ -81,14 +81,13 @@ page {
 }
 .user-info-wrap .user-img-wrap .user-info .user-name {
   color: #ffffff;
-  margin-top: 24rpx;
   font-size: 40rpx;
 }
 .use-content .use-main {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
-  top: 27%;
+  top: 24%;
 }
 .use-content .use-main .history-wrap {
   width: 98vw;
@@ -99,10 +98,11 @@ page {
 .use-content .use-main .history-wrap navigator {
   flex: 1;
   text-align: center;
-  padding: 10rpx 0;
+  padding: 20rpx 0;
 }
 .use-content .use-main .history-wrap navigator .history-num {
   color: var(--themeColor);
+  font-size: 30rpx;
 }
 .use-content .use-main .order {
   margin-top: 20rpx;
@@ -110,9 +110,17 @@ page {
   border-radius: 10rpx;
 }
 .use-content .use-main .order .order-top {
-  border-bottom: 1rpx solid #ccc;
-  padding: 20rpx;
+  padding: 20rpx 20rpx 12rpx 6rpx;
   font-size: 32rpx;
+}
+.use-content .use-main .order .order-top::before {
+  content: "  ";
+  display: inline-block;
+  width: 10rpx;
+  height: 30rpx;
+  background-color: var(--themeColor);
+  position: relative;
+  top: 2rpx;
 }
 .use-content .use-main .order .order-content {
   display: flex;
@@ -138,17 +146,27 @@ page {
   display: flex;
   padding: 20rpx;
   align-items: center;
-  border-bottom: 1rpx solid #ccc;
+  justify-content: space-between;
   font-size: 32rpx;
 }
-.use-content .use-main .other .other-item .icon {
-  color: #fea176;
-  font-size: 34rpx;
+.use-content .use-main .other .other-item .iconAndTitle {
+  display: flex;
 }
-.use-content .use-main .other .other-item .info {
+.use-content .use-main .other .other-item .iconAndTitle .info {
+  flex: 1;
   color: #301616;
   margin-left: 10rpx;
   font-size: 30rpx;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  font-weight: 400;
+  width: auto;
+  background-color: #fff;
+}
+.use-content .use-main .other .other-item .iconAndTitle .info .icon {
+  color: #fea176;
+  font-size: 34rpx;
 }
 .use-content .use-main .other .other-item:nth-last-child(1) {
   border: none;

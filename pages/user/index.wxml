@@ -28,13 +28,9 @@
         <view class="history-num">0</view>
         <view class="history-name">收藏的店铺</view>
       </navigator>
-      <navigator>
-        <view class="history-num">0</view>
+      <navigator url="/pages/collect/index">
+        <view class="history-num">{{collectNum}}</view>
         <view class="history-name">收藏的商品</view>
-      </navigator>
-      <navigator>
-        <view class="history-num">0</view>
-        <view class="history-name">关注的商品</view>
       </navigator>
       <navigator>
         <view class="history-num">0</view>
@@ -43,47 +39,57 @@
     </view>
     <!-- 我的订单 -->
     <view class="order">
-      <view class="order-top">我的订单</view>
+      <view class="order-top"> 我的订单</view>
       <view class="order-content">
-        <navigator class="content-item">
+        <navigator class="content-item" url="/pages/order/index?type=1">
           <text class="iconfont order-icon icon-dingdan"></text>
           <view class="allOrder">全部订单</view>
         </navigator>
-        <navigator class="content-item">
+        <navigator class="content-item" url="/pages/order/index?type=2">
           <text class="iconfont order-icon icon-sweep"></text>
           <view class="allOrder">待付款</view>
         </navigator>
-        <navigator class="content-item">
+        <navigator class="content-item" url="/pages/order/index?type=3">
           <text class="iconfont order-icon icon-daishouhuo"></text>
           <view class="allOrder">待收货</view>
         </navigator>
-        <navigator class="content-item">
+        <view class="content-item" bind:tap="handleRefund">
           <text class="iconfont order-icon icon-shouye1"></text>
           <view class="allOrder">退款退货</view>
-        </navigator>
+        </view>
       </view>
     </view>
     <!-- 其他设置 -->
     <view class="other">
       <view class="other-item">
-        <text class="icon iconfont icon-daishouhuo2"></text>
-        <view class="info">收货地址管理</view>
+        <view class="iconAndTitle">
+          <view class="info"><text class="icon iconfont icon-daishouhuo2"/> 收货地址管理</view>
+        </view>
+        <text class="iconfont icon-jiantou"></text>
       </view>
       <view class="other-item">
-        <text class="icon iconfont icon-kefu"></text>
-        <view class="info">联系客服</view>
+        <view class="iconAndTitle">
+          <button class="info" open-type="contact"><text class="icon iconfont icon-kefu"/> 联系客服</button>
+        </view>
+        <text class="iconfont icon-jiantou"></text>
       </view>
       <view class="other-item">
-        <text class="icon iconfont icon-juminyijian"></text>
-        <view class="info">意见反馈</view>
+        <view class="iconAndTitle">
+          <button class="info" open-type="feedback"><text class="icon iconfont icon-juminyijian"/> 意见反馈</button>
+        </view>
+        <text class="iconfont icon-jiantou"></text>
       </view>
       <view class="other-item">
-        <text class="icon iconfont icon-iconzhengli-"></text>
-        <view class="info">关于我们</view>
+        <view class="iconAndTitle">
+          <view class="info"><text class="icon iconfont icon-iconzhengli-"/> 关于我们</view>
+        </view>
+        <text class="iconfont icon-jiantou"></text>
       </view>
       <view class="other-item">
-        <text class="icon iconfont icon-tuijian"></text>
-        <view class="info">把应用推荐给其他人</view>
+        <view class="iconAndTitle">
+          <button class="info" open-type="share"><text class="icon iconfont icon-tuijian"/>  把应用推荐给其他人</button>
+        </view>
+        <text class="iconfont icon-jiantou"></text>
       </view>
     </view>
   </view>
